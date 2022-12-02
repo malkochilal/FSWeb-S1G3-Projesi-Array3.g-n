@@ -40,9 +40,14 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
 */
 
 
-function kopyala(/*kod buraya*/){
-  /*kod buraya*/
+
+function kopyala (dizi){
+  return [...dizi]
 }
+kopyala(orijinalTatlar);
+
+
+
 
 
 /* Görev 2:
@@ -56,11 +61,15 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(/*kod buraya*/){
-  /*kod buraya*/
+function dizi25Cesitmi(dizi){
+  if (dizi.length){
+    return true
+  }else {
+    return false
+  }
 }
 
-
+console.log(dizi25Cesitmi(orijinalTatlar))
 /* Görev 3:
 Pastane sahibi size yeni bir lezzet fikriyle geldi: Kakule! Bunun da çok tutacağından çok emin. Bu lezzeti eklemek için diziyi değiştirmeniz gerekir.
 
@@ -74,10 +83,14 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 */
 
 
-function cesitEkle(/*kod buraya*/){
-  /*kod buraya*/
-}
+function cesitEkle(dizi,yeniTat){
+  dizi.unshift(yeniTat);
+  return dizi;
 
+
+ 
+}
+console.log(cesitEkle(orijinalTatlar,"kakule"))
 
 /* Cörev 4:
 
@@ -92,10 +105,15 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
-  /*kod buraya*/
+function sonCesitiKaldir(dizi){
+  dizi.pop();
+  return dizi
+
+
+
 }
 
+console.log(sonCesitiKaldir(orijinalTatlar))
 
 /* Görev 5:
 Dizideki belirli bir indeksteki çeşniyi döndüren bir işlev yazın.
@@ -108,11 +126,12 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/){
-  /*kod buraya*/
-}
-
-
+function indekstekiCesitiGetir(dizi,index){
+  return dizi[index];
+   
+   
+ }
+ console.log(indekstekiCesitiGetir(orijinalTatlar,2))
 /* Görev 6:
 
 Firma, ürün yelpazesine daha fazla lezzet eklemek istediğinden, sadece ilk veya son aromayı keyfi olarak çıkarmak yerine, aroma adına göre aromaları kaldırmaları gerektiğini fark ederler. Göreviniz, verilen bir dizinde, ada göre bu tadı diziden çıkarmak.
@@ -128,10 +147,19 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreCesitCikar(dizi,lezzet){
+  for(let i=0;i<dizi.length;i++){
+    if(dizi[i]===lezzet){
+      dizi.splice(i,1)
+    
+    
+      
+    }
+   
+  }return dizi
+  
 }
-
+console.log(ismeGoreCesitCikar(orijinalTatlar,"Vanilya"))
 
 /* Görev 7:
 
@@ -154,11 +182,17 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
 */
 
 
-function ismeGoreFiltrele(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreFiltrele(dizi,filtre){
+  let sonDizi=[]
+  for(let i=0;i<dizi.length;i++){
+    if(dizi[i].includes(filtre)){
+      sonDizi.push(dizi[i])
+      
+    }
+  }return sonDizi
 }
 
-
+console.log(ismeGoreFiltrele(orijinalTatlar,"Çikolata"))
 
 /* ALIŞTIRMA */
 
